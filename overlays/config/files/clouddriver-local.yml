@@ -1,2 +1,9 @@
 # Overrides for clouddriver default configuration:
 # https://github.com/spinnaker/clouddriver/blob/master/clouddriver-web/config/clouddriver.yml
+
+artifacts:
+  gitrepo:
+    enabled: true
+    accounts:
+    - name: git
+      sshTrustUnknownHosts: true
