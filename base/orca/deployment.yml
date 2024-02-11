@@ -27,6 +27,14 @@ spec:
             memory: 1Gi
           limits:
             memory: 1Gi
+        preStop:
+          exec:
+            command:
+            - "/bin/sh"
+            - "-c"
+            - "wget --header=\"content-type: application/json\" --post-data='{\"enabled\": \"false\"}' "
+            - "http://localhost:8083/admin/instance/enabled"
+            - "sleep 15"  # terminationGracePeriodSeconds() / 2
         securityContext:
           allowPrivilegeEscalation: false
         volumeMounts:
